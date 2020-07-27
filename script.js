@@ -16,6 +16,18 @@ request.onload = function() {
 request.send();
 */
 
+
+const app = document.getElementById('root')
+
+const logo = document.createElement('img')
+logo.src = 'logo.png'
+
+const container = document.createElement('div')
+container.setAttribute('class', 'container')
+
+app.appendChild(logo)
+app.appendChild(container)
+
 fetch("https://ghibliapi.herokuapp.com/films")
     .then((response) => {
         return response.json()
@@ -29,6 +41,7 @@ fetch("https://ghibliapi.herokuapp.com/films")
             // Create a h1 and set the text contect to the film's title
             const h1 = document.createElement('h1')
             h1.textContent = movie.title
+                // console.log(h1)
 
             // Create a p and set the text content to the film's description
             const p = document.createElement('p')
@@ -43,14 +56,3 @@ fetch("https://ghibliapi.herokuapp.com/films")
             container.appendChild(card)
         })
     })
-
-const app = document.getElementById('root')
-
-const logo = document.createElement('img')
-logo.src = 'logo.png'
-
-const container = document.createElement('div')
-container.setAttribute('class', 'container')
-
-app.appendChild(logo)
-app.appendChild(container)
